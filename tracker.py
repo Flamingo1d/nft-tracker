@@ -30,9 +30,14 @@ import requests
 
 OPENSEA_BASE = "https://api.opensea.io/api/v2"
 COINGECKO_URL = "https://api.coingecko.com/api/v3/simple/price"
+# cloudflare-eth.com failed from GitHub runners during testing; these are
+# keyless public RPCs tried in order until one answers.
 ETH_RPC_ENDPOINTS = [
-    "https://cloudflare-eth.com",
+    "https://ethereum-rpc.publicnode.com",
+    "https://eth.drpc.org",
     "https://eth.llamarpc.com",
+    "https://1rpc.io/eth",
+    "https://rpc.ankr.com/eth",
 ]
 
 LOG_PATH = Path("nft-experiment-log.json")
@@ -136,6 +141,7 @@ def fetch_wallet_eth(address):
         "method": "eth_getBalance",
         "params": [address, "latest"],
     }
+    failures = []
     for endpoint in ETH_RPC_ENDPOINTS:
         try:
             r = requests.post(endpoint, json=payload, timeout=REQUEST_TIMEOUT)
@@ -143,9 +149,10 @@ def fetch_wallet_eth(address):
             hex_wei = dig(r.json(), "result")
             if hex_wei:
                 return int(hex_wei, 16) / 1e18, None
-        except Exception:
-            continue
-    return None, "all_rpc_endpoints_failed"
+            failures.append(f"{endpoint}: no result field")
+        except Exception as e:
+            failures.append(f"{endpoint}: {type(e).__name__}")
+    return None, "all_rpc_endpoints_failed (" + "; ".join(failures) + ")"
 
 
 def fetch_collection(client, slug):
@@ -160,7 +167,6 @@ def fetch_collection(client, slug):
         total = dig(stats, "total", default={})
         row["floor_eth"] = dig(total, "floor_price")
         row["num_owners"] = dig(total, "num_owners")
-        row["market_cap_eth"] = dig(total, "market_cap")
 
         one_day = find_interval(stats, "one_day")
         seven_day = find_interval(stats, "seven_day")
@@ -174,6 +180,7 @@ def fetch_collection(client, slug):
         errors.append(f"{slug}/meta: {err}")
     else:
         row["total_supply"] = dig(meta, "total_supply")
+        row["opensea_eth_usd"] = dig(meta, "pricing_currencies", "listing_currency", "usd_price")
         row["is_disabled"] = dig(meta, "is_disabled")
         row["safelist_status"] = dig(meta, "safelist_status")
 
@@ -182,38 +189,46 @@ def fetch_collection(client, slug):
     if err:
         errors.append(f"{slug}/offers: {err}")
     else:
-        row["top_bid_eth"] = extract_top_bid(offers)
+        row["top_bid_eth"], row["bid_currency"] = extract_top_bid(offers)
 
     return row, errors
 
 
 def extract_top_bid(offers_payload):
-    """Best collection offer in ETH, or None.
+    """Highest PER-ITEM collection offer in ETH, or None.
 
-    Offer amounts come back as wei strings in the protocol data. Field layout
-    has moved around across API versions, so try several shapes and give up
-    quietly rather than returning a number we aren't sure about.
+    Critical: price.value is the TOTAL for the whole offer, and many offers
+    are bulk. One real example was 0.088 WETH for 80 NFTs — 0.0011 each, not
+    0.088. Dividing by remaining_quantity is mandatory; without it the top bid
+    can land above the floor and produce a negative spread.
+
+    Offers are denominated in WETH, which trades within ~0.1% of ETH. Treated
+    as equivalent here; the currency is recorded so it can be checked later.
     """
     offers = dig(offers_payload, "offers", default=[])
-    if not isinstance(offers, list):
-        return None
+    if not isinstance(offers, list) or not offers:
+        return None, None
 
-    best = None
+    best, currency = None, None
     for offer in offers:
         raw = (
             dig(offer, "price", "value")
             or dig(offer, "protocol_data", "parameters", "offer", 0, "startAmount")
-            or dig(offer, "current", "value")
         )
         if raw is None:
             continue
         try:
-            val = int(raw) / 1e18
+            total = int(raw) / 1e18
+            qty = int(offer.get("remaining_quantity") or 1)
         except (TypeError, ValueError):
             continue
-        if val > 0 and (best is None or val > best):
-            best = val
-    return best
+        if qty < 1 or total <= 0:
+            continue
+        per_item = total / qty
+        if best is None or per_item > best:
+            best = per_item
+            currency = dig(offer, "price", "currency")
+    return best, currency
 
 
 # ---------------------------------------------------------------- probe
@@ -320,10 +335,6 @@ def weekly_run(client, cfg):
         else:
             row["spread_pct"] = None
 
-        supply = row.get("total_supply")
-        listed = row.get("listed_count")
-        row["listed_ratio"] = round(listed / supply, 4) if listed and supply else None
-
         collections.append(row)
 
         if row.get("sales_7d") is not None and row["sales_7d"] < 10:
@@ -332,6 +343,12 @@ def weekly_run(client, cfg):
             flags.append(f"{slug}: spread {row['spread_pct']}% — unusually liquid")
         if row.get("is_disabled"):
             flags.append(f"{slug}: collection disabled on OpenSea")
+        if row.get("spread_pct") is not None and row["spread_pct"] < 0:
+            flags.append(
+                f"{slug}: NEGATIVE SPREAD ({row['spread_pct']}%) — bid above floor. "
+                f"This is almost certainly a parsing bug, not a market condition. "
+                f"Treat this row as suspect."
+            )
 
     # Week-over-week floor moves, compared against the previous row only.
     if state["weekly_observations"]:
