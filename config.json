@@ -7,10 +7,10 @@
   },
 
   "criteria": {
-    "max_spread_pct": 20,
-    "min_sales_7d": 15,
+    "max_spread_pct": 10,
+    "min_sales_7d": 40,
     "min_owners": 400,
-    "min_bid_depth": 3,
+    "min_unique_bidders": 5,
     "max_position_fraction": 0.60
   },
 
