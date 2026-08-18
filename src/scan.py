@@ -39,10 +39,17 @@ RPCS = [
     "https://1rpc.io/eth",
 ]
 
-CONFIG = Path("config.json")
-WATCHLIST = Path("watchlist.json")
-HISTORY = Path("history.json")
-LATEST = Path("latest-scan.json")
+# Paths are resolved from the repo root, not the working directory, so the
+# script behaves the same whether invoked as `python src/scan.py` or from
+# inside src/.
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "data"
+REPORTS_DIR = ROOT / "reports"
+
+CONFIG = ROOT / "config.json"
+WATCHLIST = DATA_DIR / "watchlist.json"
+HISTORY = DATA_DIR / "history.json"
+LATEST = DATA_DIR / "latest-scan.json"
 
 TIMEOUT = 30
 PAUSE = 0.35
@@ -500,6 +507,8 @@ def main():
         log("Dry run — nothing written.")
         return
 
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     LATEST.write_text(json.dumps(snapshot, indent=2))
     WATCHLIST.write_text(json.dumps(wl, indent=2))
 
