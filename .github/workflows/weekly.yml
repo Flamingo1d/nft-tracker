@@ -33,9 +33,9 @@ jobs:
           OPENSEA_API_KEY: ${{ secrets.OPENSEA_API_KEY }}
         run: |
           case "${{ inputs.mode }}" in
-            probe)   python scan.py --probe ;;
-            dry-run) python scan.py --dry-run ;;
-            *)       python scan.py ;;
+            probe)   python src/scan.py --probe ;;
+            dry-run) python src/scan.py --dry-run ;;
+            *)       python src/scan.py ;;
           esac
 
       - name: Summary
@@ -46,7 +46,7 @@ jobs:
             echo '```'
             python - <<'PY' 2>/dev/null || echo "no scan data"
           import json
-          d = json.load(open('latest-scan.json'))
+          d = json.load(open('data/latest-scan.json'))
           print(f"measured {d['measured']} | qualifying {len(d['qualifying'])} | near misses {len(d['near_misses'])}")
           for r in d['qualifying']:
               print(f"  PASS {r['slug']} floor={r.get('floor_eth')} spread={r.get('spread_pct')}%")
@@ -62,9 +62,8 @@ jobs:
         with:
           name: scan-output
           path: |
-            latest-scan.json
-            watchlist.json
-            history.json
+            data/
+            reports/
           if-no-files-found: warn
           retention-days: 90
 
@@ -73,9 +72,8 @@ jobs:
         run: |
           git config user.name  "nft-scanner"
           git config user.email "actions@github.com"
-          for f in latest-scan.json watchlist.json history.json; do
-            [ -f "$f" ] && git add "$f" && echo "staged $f"
-          done
+          git add data/ reports/ 2>/dev/null || true
+          git status --short
           if git diff --staged --quiet; then
             echo "nothing to commit"
           else
