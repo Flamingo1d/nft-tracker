@@ -245,6 +245,32 @@ def stage3_offers(client, slug, floor):
     }, None
 
 
+def stage4_detail(client, slug):
+    """Age and supply. The list endpoint omits both, so this is a separate call
+    — but it runs only on collections that already passed everything else, so
+    it costs a handful of requests rather than one per collection scanned."""
+    data, err = client.get(f"/collections/{slug}")
+    if err:
+        return None, err
+    return {
+        "total_supply": dig(data, "total_supply"),
+        "created_date": dig(data, "created_date"),
+        "is_disabled": dig(data, "is_disabled"),
+    }, None
+
+
+def age_days(created):
+    if not created:
+        return None
+    for fmt in ("%Y-%m-%d", "%Y-%m-%dT%H:%M:%S"):
+        try:
+            return (date.today() - datetime.strptime(created[:len(fmt) + 2].rstrip("Z"),
+                                                     fmt).date()).days
+        except ValueError:
+            continue
+    return None
+
+
 def wash_flags(stats):
     """Cheap heuristics for volume that isn't real. Not proof — prompts a look."""
     flags = []
@@ -304,7 +330,7 @@ def evaluate(row, cfg, budget_eth):
 
     min_sales = t["min_sales_7d"] / mult
     if (row.get("sales_7d") or 0) < min_sales:
-        fails.append(f"sales_7d {row.get('sales_7d')} < {min_sales:.0f} for {band} position")
+        fails.append(f"sales_7d {row.get('sales_7d')} < {min_sales:.1f} needed for {band} position")
 
     if (row.get("owners") or 0) < t["min_owners"]:
         fails.append(f"owners {row.get('owners')} < {t['min_owners']}")
@@ -312,10 +338,30 @@ def evaluate(row, cfg, budget_eth):
     min_bidders = t["min_unique_bidders"] / mult
     if (row.get("unique_bidders_near_top") or 0) < min_bidders:
         fails.append(f"only {row.get('unique_bidders_near_top')} distinct bidders "
-                     f"near top (need {min_bidders:.0f} for {band})")
+                     f"near top (need {min_bidders:.1f} for {band})")
 
     if row.get("safelist_status") != "verified":
         fails.append("not verified")
+
+    # Age. A collection with no trading history has no floor worth the name —
+    # its price is whatever the launch hype says it is.
+    min_age = t.get("min_age_days", 90)
+    age = row.get("age_days")
+    if age is not None and age < min_age:
+        fails.append(f"only {age} days old (need {min_age})")
+
+    # Entire lifetime inside the 30-day window means the collection is new
+    # regardless of what its listed creation date claims.
+    life = row.get("lifetime_sales") or 0
+    s30 = row.get("sales_30d") or 0
+    if life > 0 and s30 >= life * 0.98:
+        fails.append("entire trading history is under 30 days old")
+
+    # Volume collapse: this week is a rounding error against the monthly rate.
+    v7 = row.get("volume_7d_eth") or 0
+    v30 = row.get("volume_30d_eth") or 0
+    if v30 > 0 and v7 < (v30 / 30 * 7) * t.get("min_volume_vs_trend", 0.25):
+        fails.append(f"7d volume {v7:.2f} ETH is a collapse vs 30d rate")
 
     return (len(fails) == 0), fails, band
 
@@ -478,7 +524,19 @@ def main():
             row.update(offers)
 
         row["wash_flags"] = wash_flags(stats)
+
+        # Evaluate once on the cheap data. Age and supply need another request,
+        # so only fetch them for rows that already survive everything else —
+        # a handful of calls rather than one per collection scanned.
         passes, fails, band = evaluate(row, cfg, budget)
+        if passes or watched_now:
+            detail, err = stage4_detail(client, slug)
+            if err:
+                row["detail_error"] = err
+            else:
+                row.update(detail)
+                row["age_days"] = age_days(detail.get("created_date"))
+            passes, fails, band = evaluate(row, cfg, budget)
         row["passes"], row["fails"], row["size_band"] = passes, fails, band
         row["position_pct_of_budget"] = (round(stats["floor_eth"] / budget * 100, 1)
                                          if stats["floor_eth"] and budget else None)
@@ -532,7 +590,8 @@ def main():
         "rows": [{k: r.get(k) for k in
                   ("slug", "floor_eth", "top_bid_eth", "spread_pct", "sales_7d",
                    "volume_7d_eth", "owners", "unique_bidders_near_top",
-                   "items_bid_near_top", "passes", "on_watchlist", "wash_flags")}
+                   "items_bid_near_top", "age_days", "passes", "on_watchlist",
+                   "wash_flags")}
                  for r in list(scanned.values())],
     })
     HISTORY.write_text(json.dumps(hist[-60:], indent=2))
