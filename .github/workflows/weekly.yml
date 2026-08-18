@@ -2,8 +2,8 @@ name: Weekly NFT Tracker
 
 on:
   schedule:
-    # 07:00 UTC Mondays. Note: GitHub cron is UTC-only and does not follow
-    # DST, so this is 08:00 Zurich in winter and 09:00 in summer.
+    # 07:00 UTC Mondays. GitHub cron is UTC-only and ignores DST, so this is
+    # 08:00 Zurich in winter and 09:00 in summer.
     - cron: '0 7 * * 1'
   workflow_dispatch:
     inputs:
@@ -19,9 +19,9 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
@@ -38,15 +38,38 @@ jobs:
             python tracker.py
           fi
 
+      # Belt and braces: even if the commit below fails, the output is
+      # downloadable from the run page for 90 days.
+      - name: Upload output as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tracker-output
+          path: |
+            nft-experiment-log.json
+            probe_output.json
+          if-no-files-found: warn
+          retention-days: 90
+
       - name: Commit results
         if: always()
         run: |
           git config user.name  "nft-tracker"
           git config user.email "actions@github.com"
-          git add nft-experiment-log.json probe_output.json 2>/dev/null || true
+          # Stage each file separately. A single `git add a b` fails entirely
+          # when one file is missing, which silently stages nothing.
+          for f in nft-experiment-log.json probe_output.json; do
+            if [ -f "$f" ]; then
+              git add "$f"
+              echo "Staged $f"
+            else
+              echo "Skipping $f (not present)"
+            fi
+          done
           if git diff --staged --quiet; then
-            echo "Nothing changed."
+            echo "Nothing to commit."
           else
-            git commit -m "Weekly run: $(date -u +%Y-%m-%d)"
+            git commit -m "Run: $(date -u +%Y-%m-%d)"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
             git push
           fi
