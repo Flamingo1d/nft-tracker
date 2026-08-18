@@ -136,18 +136,24 @@ def wallet_eth(addr):
 
 
 def bid_profile(payload):
-    """Top per-item bid, plus how much support sits near it.
+    """Top per-item bid, and how many DISTINCT WALLETS support it.
 
-    price.value is the total for the whole offer; bulk offers are common
-    (0.088 WETH for 80 items is 0.0011 each). Dividing by remaining_quantity
-    is mandatory — without it the top bid can exceed the floor.
+    Two corrections live here, both learned from real data:
 
-    depth_near_top counts items bid for within 10% of the best price. A top bid
-    with nothing behind it means one buyer, and if they walk there is no market.
+    1. price.value is the total for the whole offer, not per item. Bulk offers
+       are common (0.088 WETH for 80 items is 0.0011 each). Without dividing by
+       remaining_quantity the top bid can exceed the floor.
+
+    2. Depth must count wallets, not items. One wallet bidding on 56 items is
+       one buyer, not fifty-six. Counting items would let a single bulk bidder
+       satisfy the very check meant to detect single bulk bidders.
+
+    Offers come back sorted by descending per-item price, so the first page
+    already contains the highest bids — which is all "near the top" needs.
     """
     offers = dig(payload, "offers", default=[])
     if not isinstance(offers, list) or not offers:
-        return None, 0, 0
+        return None, 0, 0, 0
 
     priced = []
     for o in offers:
@@ -161,15 +167,18 @@ def bid_profile(payload):
             continue
         if qty < 1 or total <= 0:
             continue
-        priced.append((total / qty, qty))
+        offerer = (dig(o, "protocol_data", "parameters", "offerer") or "").lower()
+        priced.append((total / qty, qty, offerer))
 
     if not priced:
-        return None, 0, 0
+        return None, 0, 0, 0
 
     priced.sort(key=lambda x: -x[0])
     top = priced[0][0]
-    depth = sum(q for per, q in priced if per >= top * 0.90)
-    return top, depth, len(priced)
+    near = [p for p in priced if p[0] >= top * 0.90]
+    unique_bidders = len({p[2] for p in near if p[2]})
+    items_near_top = sum(p[1] for p in near)
+    return top, unique_bidders, items_near_top, len(priced)
 
 
 # ------------------------------------------------------------------ stages
@@ -226,11 +235,12 @@ def stage3_offers(client, slug, floor):
     data, err = client.get(f"/offers/collection/{slug}")
     if err:
         return None, err
-    top, depth, count = bid_profile(data)
+    top, bidders, items, count = bid_profile(data)
     return {
         "top_bid_eth": round(top, 6) if top else None,
         "spread_pct": round((floor - top) / floor * 100, 1) if (top and floor) else None,
-        "bid_depth_near_top": depth,
+        "unique_bidders_near_top": bidders,
+        "items_bid_near_top": items,
         "active_offers": count,
     }, None
 
@@ -299,9 +309,10 @@ def evaluate(row, cfg, budget_eth):
     if (row.get("owners") or 0) < t["min_owners"]:
         fails.append(f"owners {row.get('owners')} < {t['min_owners']}")
 
-    min_depth = t["min_bid_depth"] / mult
-    if (row.get("bid_depth_near_top") or 0) < min_depth:
-        fails.append(f"bid depth {row.get('bid_depth_near_top')} < {min_depth:.0f} for {band}")
+    min_bidders = t["min_unique_bidders"] / mult
+    if (row.get("unique_bidders_near_top") or 0) < min_bidders:
+        fails.append(f"only {row.get('unique_bidders_near_top')} distinct bidders "
+                     f"near top (need {min_bidders:.0f} for {band})")
 
     if row.get("safelist_status") != "verified":
         fails.append("not verified")
@@ -520,8 +531,8 @@ def main():
         "qualifying_count": len(qualifying),
         "rows": [{k: r.get(k) for k in
                   ("slug", "floor_eth", "top_bid_eth", "spread_pct", "sales_7d",
-                   "volume_7d_eth", "owners", "bid_depth_near_top", "passes",
-                   "on_watchlist", "wash_flags")}
+                   "volume_7d_eth", "owners", "unique_bidders_near_top",
+                   "items_bid_near_top", "passes", "on_watchlist", "wash_flags")}
                  for r in list(scanned.values())],
     })
     HISTORY.write_text(json.dumps(hist[-60:], indent=2))
