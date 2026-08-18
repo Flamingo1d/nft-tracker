@@ -1,0 +1,52 @@
+name: Weekly NFT Tracker
+
+on:
+  schedule:
+    # 07:00 UTC Mondays. Note: GitHub cron is UTC-only and does not follow
+    # DST, so this is 08:00 Zurich in winter and 09:00 in summer.
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      probe:
+        description: 'Run in probe mode instead of collecting'
+        type: boolean
+        default: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tracker
+        env:
+          OPENSEA_API_KEY: ${{ secrets.OPENSEA_API_KEY }}
+        run: |
+          if [ "${{ inputs.probe }}" = "true" ]; then
+            python tracker.py --probe
+          else
+            python tracker.py
+          fi
+
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name  "nft-tracker"
+          git config user.email "actions@github.com"
+          git add nft-experiment-log.json probe_output.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Weekly run: $(date -u +%Y-%m-%d)"
+            git push
+          fi
