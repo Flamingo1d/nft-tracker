@@ -1,0 +1,141 @@
+{
+  "active": [
+    {
+      "slug": "nakamigos",
+      "name": "Nakamigos",
+      "entered_on": "2026-08-18",
+      "weeks_on_list": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-08-18",
+      "entry_metrics": {
+        "floor_eth": 0.097082,
+        "top_bid_eth": 0.0932,
+        "spread_pct": 4.0,
+        "sales_7d": 171,
+        "owners": 5273
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "fwogs",
+      "name": "fwogs",
+      "entered_on": "2026-08-18",
+      "weeks_on_list": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-08-18",
+      "entry_metrics": {
+        "floor_eth": 0.0347949,
+        "top_bid_eth": 0.0316,
+        "spread_pct": 9.2,
+        "sales_7d": 262,
+        "owners": 1486
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "azukielementals",
+      "name": "Azuki Elementals",
+      "entered_on": "2026-08-18",
+      "weeks_on_list": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-08-18",
+      "entry_metrics": {
+        "floor_eth": 0.0788,
+        "top_bid_eth": 0.076,
+        "spread_pct": 3.6,
+        "sales_7d": 82,
+        "owners": 6341
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "beanzofficial",
+      "name": "BEANZ Official",
+      "entered_on": "2026-08-18",
+      "weeks_on_list": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-08-18",
+      "entry_metrics": {
+        "floor_eth": 0.04793593,
+        "top_bid_eth": 0.0445,
+        "spread_pct": 7.2,
+        "sales_7d": 87,
+        "owners": 8205
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "gemesis",
+      "name": "Gemesis",
+      "entered_on": "2026-08-18",
+      "weeks_on_list": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-08-18",
+      "entry_metrics": {
+        "floor_eth": 0.00979999999997,
+        "top_bid_eth": 0.0092,
+        "spread_pct": 6.1,
+        "sales_7d": 217,
+        "owners": 48497
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "memelandpotatoz",
+      "name": "Memeland Potatoz",
+      "entered_on": "2026-08-18",
+      "weeks_on_list": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-08-18",
+      "entry_metrics": {
+        "floor_eth": 0.0478033,
+        "top_bid_eth": 0.045,
+        "spread_pct": 5.9,
+        "sales_7d": 55,
+        "owners": 2342
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "nakamigos-cloaks",
+      "name": "Nakamigos-CLOAKS",
+      "entered_on": "2026-08-18",
+      "weeks_on_list": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-08-18",
+      "entry_metrics": {
+        "floor_eth": 0.0107941998,
+        "top_bid_eth": 0.0099,
+        "spread_pct": 8.3,
+        "sales_7d": 117,
+        "owners": 3629
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "kaiju-kingz",
+      "name": "Kaiju Kingz",
+      "entered_on": "2026-08-18",
+      "weeks_on_list": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-08-18",
+      "entry_metrics": {
+        "floor_eth": 0.01256908,
+        "top_bid_eth": 0.0114,
+        "spread_pct": 9.3,
+        "sales_7d": 52,
+        "owners": 3327
+      },
+      "research": null,
+      "missed_scans": 0
+    }
+  ],
+  "exited": []
+}
