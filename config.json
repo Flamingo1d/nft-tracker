@@ -1,4 +1,21 @@
 {
   "wallet_address": "0x5ddde8c4ddd774c65302a5ab1d9d52c3779ad7d1",
-  "watchlist": []
+  "fallback_budget_eth": 0.28,
+
+  "scan": {
+    "pool_size": 300
+  },
+
+  "criteria": {
+    "max_spread_pct": 20,
+    "min_sales_7d": 15,
+    "min_owners": 400,
+    "min_bid_depth": 3,
+    "max_position_fraction": 0.60
+  },
+
+  "watchlist": {
+    "min_tenure_weeks": 6,
+    "consecutive_fails_to_exit": 2
+  }
 }
