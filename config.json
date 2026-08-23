@@ -1,17 +1,20 @@
 {
-  "fallback_budget_eth": 0.283,
+  "budget_eth": 0.283,
+
   "scan": {
     "pool_size": 300
   },
+
   "criteria": {
     "max_spread_pct": 10,
     "min_sales_7d": 40,
     "min_owners": 400,
     "min_unique_bidders": 5,
-    "max_position_fraction": 0.6,
     "min_age_days": 90,
-    "min_volume_vs_trend": 0.25
+    "min_volume_vs_trend": 0.25,
+    "max_position_fraction": 0.60
   },
+
   "watchlist": {
     "min_tenure_weeks": 6,
     "consecutive_fails_to_exit": 2
