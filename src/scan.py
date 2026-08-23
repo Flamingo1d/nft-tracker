@@ -458,19 +458,31 @@ def main():
     price, e = eth_usd()
     if e:
         errors.append(e)
-    bal, e = wallet_eth(cfg["wallet_address"])
-    if e:
-        errors.append(e)
+
+    # Wallet address is optional. Without one the budget comes straight from
+    # config, which keeps the repo free of anything identifying. Supplying an
+    # address just makes the budget track the real balance automatically.
+    addr = cfg.get("wallet_address")
+    bal = None
+    if addr:
+        bal, e = wallet_eth(addr)
+        if e:
+            errors.append(e)
 
     if args.probe:
         data, err = client.get("/collections", {"chain": "ethereum", "limit": 5})
         log(f"collections: {'FAIL ' + err if err else 'ok'}")
-        log(f"eth_usd={price}  wallet_eth={bal}")
+        log(f"eth_usd={price}  wallet_eth={bal}  budget_eth={cfg.get('budget_eth')}")
         return
 
-    budget = bal if bal else cfg.get("fallback_budget_eth", 0.28)
+    budget = bal if bal else cfg.get("budget_eth")
+    if not budget:
+        log("FATAL: no budget. Set budget_eth in config.json, or a wallet_address.")
+        sys.exit(1)
     if bal is None:
-        log(f"Wallet unreadable; using fallback budget {budget} ETH")
+        log(f"Budget from config: {budget} ETH")
+    else:
+        log(f"Budget from wallet: {budget:.6f} ETH")
     log(f"Budget: {budget:.4f} ETH (${budget * price:,.0f})" if price else f"Budget: {budget}")
 
     wl = load(WATCHLIST, {"active": [], "exited": []})
@@ -559,6 +571,7 @@ def main():
         "scanned_at": datetime.now(timezone.utc).isoformat(),
         "eth_usd": price,
         "wallet_eth": bal,
+        "budget_eth": round(budget, 6),
         "budget_usd": round(budget * price, 2) if price else None,
         "pool_size": len(pool),
         "measured": len(scanned),
@@ -585,7 +598,7 @@ def main():
     hist.append({
         "date": today,
         "eth_usd": price,
-        "wallet_eth": bal,
+        "budget_eth": round(budget, 6),
         "qualifying_count": len(qualifying),
         "rows": [{k: r.get(k) for k in
                   ("slug", "floor_eth", "top_bid_eth", "spread_pct", "sales_7d",
