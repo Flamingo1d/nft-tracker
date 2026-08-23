@@ -368,11 +368,29 @@ def evaluate(row, cfg, budget_eth):
 
 # ------------------------------------------------------------------ watchlist
 
+def days_between(iso_date, today_iso):
+    """Calendar days between two ISO dates. Returns 0 on unparseable input."""
+    try:
+        a = datetime.strptime(iso_date, "%Y-%m-%d").date()
+        b = datetime.strptime(today_iso, "%Y-%m-%d").date()
+        return (b - a).days
+    except (TypeError, ValueError):
+        return 0
+
+
 def update_watchlist(wl, scanned, today, cfg):
     """Entries join on qualifying, serve a minimum tenure, and exit with a
     recorded reason. Silent removal is what creates survivorship bias — exiting
-    is fine as long as it is written down."""
-    tenure = cfg["watchlist"]["min_tenure_weeks"]
+    is fine as long as it is written down.
+
+    Tenure is measured in ELAPSED DAYS from entered_on, not in scan count.
+    Counting runs meant a collection could age six "weeks" in an afternoon of
+    manual re-runs and lose its protection while barely having been observed.
+
+    Counters are also idempotent per calendar day: running the scan twice on a
+    Tuesday must not double-count a failure.
+    """
+    tenure_days = cfg["watchlist"]["min_tenure_weeks"] * 7
     grace = cfg["watchlist"]["consecutive_fails_to_exit"]
     by_slug = {e["slug"]: e for e in wl["active"]}
     events = []
@@ -380,42 +398,58 @@ def update_watchlist(wl, scanned, today, cfg):
     for slug, row in scanned.items():
         entry = by_slug.get(slug)
         if entry:
-            entry["weeks_on_list"] += 1
+            first_today = entry.get("last_seen") != today
             entry["last_seen"] = today
-            if row["passes"]:
-                entry["consecutive_fails"] = 0
-            else:
-                entry["consecutive_fails"] = entry.get("consecutive_fails", 0) + 1
+            entry["days_on_list"] = days_between(entry["entered_on"], today)
+            entry["weeks_on_list"] = round(entry["days_on_list"] / 7, 1)
+            if first_today:
+                entry["scans_seen"] = entry.get("scans_seen", 0) + 1
+                if row["passes"]:
+                    entry["consecutive_fails"] = 0
+                else:
+                    entry["consecutive_fails"] = entry.get("consecutive_fails", 0) + 1
         elif row["passes"]:
-            new = {
+            new_entry = {
                 "slug": slug,
                 "name": row.get("name"),
                 "entered_on": today,
-                "weeks_on_list": 1,
+                "days_on_list": 0,
+                "weeks_on_list": 0.0,
+                "scans_seen": 1,
                 "consecutive_fails": 0,
                 "last_seen": today,
                 "entry_metrics": {k: row.get(k) for k in
                                   ("floor_eth", "top_bid_eth", "spread_pct",
                                    "sales_7d", "owners")},
                 "research": None,
+                "missed_scans": 0,
             }
-            wl["active"].append(new)
-            by_slug[slug] = new
+            wl["active"].append(new_entry)
+            by_slug[slug] = new_entry
             events.append({"type": "entered", "slug": slug, "date": today})
 
     still_active = []
     for e in wl["active"]:
+        # Repair entries written by earlier versions, which lacked these fields
+        # or counted runs instead of days.
+        e["days_on_list"] = days_between(e.get("entered_on", today), today)
+        e["weeks_on_list"] = round(e["days_on_list"] / 7, 1)
+
         row = scanned.get(e["slug"])
         reason = None
+
         if row is None:
-            e["missed_scans"] = e.get("missed_scans", 0) + 1
-            if e["missed_scans"] >= 3:
-                reason = "disappeared from scan for 3 consecutive weeks"
+            if e.get("last_seen") != today:
+                e["missed_scans"] = e.get("missed_scans", 0) + 1
+            # Three weeks absent, measured in days so re-runs cannot rush it.
+            if e.get("missed_scans", 0) >= 3 and days_between(
+                    e.get("last_seen", today), today) >= 21:
+                reason = "absent from the scan for 3 weeks"
         else:
             e["missed_scans"] = 0
-            if e["weeks_on_list"] > tenure and e.get("consecutive_fails", 0) >= grace:
-                reason = (f"failed criteria {e['consecutive_fails']} weeks running "
-                          f"after {tenure}-week tenure: "
+            if e["days_on_list"] > tenure_days and e.get("consecutive_fails", 0) >= grace:
+                reason = (f"failed criteria {e['consecutive_fails']} scans running "
+                          f"after {e['days_on_list']} days on the list: "
                           + "; ".join(row.get("fails", [])[:3]))
 
         if reason:
@@ -623,7 +657,7 @@ def main():
         print(f"{mark}{(row['name'] or row['slug'])[:29]:<30}"
               f"floor {row.get('floor_eth', 0):>8.4f}  "
               f"spread {str(row.get('spread_pct')):>6}%  "
-              f"7d {row.get('sales_7d', 0):>4}  wk{r['weeks_on_list']:>3}")
+              f"7d {row.get('sales_7d', 0):>4}  {r['days_on_list']:>4}d")
     if not wl["active"]:
         print("  (watchlist empty)")
     print("=" * 66)
