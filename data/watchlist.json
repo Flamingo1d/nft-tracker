@@ -4,9 +4,9 @@
       "slug": "nakamigos",
       "name": "Nakamigos",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 1.9,
+      "weeks_on_list": 2.9,
       "consecutive_fails": 0,
-      "last_seen": "2026-08-31",
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.097082,
         "top_bid_eth": 0.0932,
@@ -16,16 +16,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 13,
-      "scans_seen": 2
+      "days_on_list": 20,
+      "scans_seen": 3
     },
     {
       "slug": "fwogs",
       "name": "fwogs",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 1.9,
-      "consecutive_fails": 3,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.9,
+      "consecutive_fails": 4,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0347949,
         "top_bid_eth": 0.0316,
@@ -35,16 +35,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 13,
-      "scans_seen": 2
+      "days_on_list": 20,
+      "scans_seen": 3
     },
     {
       "slug": "azukielementals",
       "name": "Azuki Elementals",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 1.9,
+      "weeks_on_list": 2.9,
       "consecutive_fails": 0,
-      "last_seen": "2026-08-31",
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0788,
         "top_bid_eth": 0.076,
@@ -54,16 +54,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 13,
-      "scans_seen": 2
+      "days_on_list": 20,
+      "scans_seen": 3
     },
     {
       "slug": "beanzofficial",
       "name": "BEANZ Official",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 1.9,
-      "consecutive_fails": 1,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.9,
+      "consecutive_fails": 0,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.04793593,
         "top_bid_eth": 0.0445,
@@ -73,16 +73,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 13,
-      "scans_seen": 2
+      "days_on_list": 20,
+      "scans_seen": 3
     },
     {
       "slug": "gemesis",
       "name": "Gemesis",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 1.9,
-      "consecutive_fails": 3,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.9,
+      "consecutive_fails": 4,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.00979999999997,
         "top_bid_eth": 0.0092,
@@ -92,16 +92,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 13,
-      "scans_seen": 2
+      "days_on_list": 20,
+      "scans_seen": 3
     },
     {
       "slug": "memelandpotatoz",
       "name": "Memeland Potatoz",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 1.9,
-      "consecutive_fails": 0,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.9,
+      "consecutive_fails": 1,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0478033,
         "top_bid_eth": 0.045,
@@ -111,16 +111,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 13,
-      "scans_seen": 2
+      "days_on_list": 20,
+      "scans_seen": 3
     },
     {
       "slug": "nakamigos-cloaks",
       "name": "Nakamigos-CLOAKS",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 1.9,
-      "consecutive_fails": 0,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.9,
+      "consecutive_fails": 1,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0107941998,
         "top_bid_eth": 0.0099,
@@ -130,16 +130,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 13,
-      "scans_seen": 2
+      "days_on_list": 20,
+      "scans_seen": 3
     },
     {
       "slug": "kaiju-kingz",
       "name": "Kaiju Kingz",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 1.9,
-      "consecutive_fails": 3,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.9,
+      "consecutive_fails": 4,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.01256908,
         "top_bid_eth": 0.0114,
@@ -149,16 +149,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 13,
-      "scans_seen": 2
+      "days_on_list": 20,
+      "scans_seen": 3
     },
     {
       "slug": "otherdeed-expanded",
       "name": "Otherdeed Expanded",
       "entered_on": "2026-08-23",
-      "weeks_on_list": 1.1,
-      "consecutive_fails": 0,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.1,
+      "consecutive_fails": 1,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.07144589,
         "top_bid_eth": 0.067,
@@ -168,16 +168,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 8,
-      "scans_seen": 2
+      "days_on_list": 15,
+      "scans_seen": 3
     },
     {
       "slug": "world-of-women-nft",
       "name": "World of Women",
       "entered_on": "2026-08-23",
-      "weeks_on_list": 1.1,
-      "consecutive_fails": 2,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.1,
+      "consecutive_fails": 3,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0958649,
         "top_bid_eth": 0.09,
@@ -187,16 +187,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 8,
-      "scans_seen": 2
+      "days_on_list": 15,
+      "scans_seen": 3
     },
     {
       "slug": "trollsoneth",
       "name": "TROLLS",
       "entered_on": "2026-08-23",
-      "weeks_on_list": 1.1,
-      "consecutive_fails": 2,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.1,
+      "consecutive_fails": 3,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.05249999,
         "top_bid_eth": 0.0477,
@@ -206,16 +206,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 8,
-      "scans_seen": 2
+      "days_on_list": 15,
+      "scans_seen": 3
     },
     {
       "slug": "depunks-club",
       "name": "DePunks Club",
       "entered_on": "2026-08-23",
-      "weeks_on_list": 1.1,
-      "consecutive_fails": 2,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.1,
+      "consecutive_fails": 3,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.009489,
         "top_bid_eth": 0.0086,
@@ -225,16 +225,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 8,
-      "scans_seen": 2
+      "days_on_list": 15,
+      "scans_seen": 3
     },
     {
       "slug": "godhatesnftees",
       "name": "God Hates NFTees",
       "entered_on": "2026-08-23",
-      "weeks_on_list": 1.1,
-      "consecutive_fails": 0,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.1,
+      "consecutive_fails": 1,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.025,
         "top_bid_eth": 0.0225,
@@ -244,16 +244,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 8,
-      "scans_seen": 2
+      "days_on_list": 15,
+      "scans_seen": 3
     },
     {
       "slug": "jirasan",
       "name": "Jirasan",
       "entered_on": "2026-08-23",
-      "weeks_on_list": 1.1,
-      "consecutive_fails": 1,
-      "last_seen": "2026-08-31",
+      "weeks_on_list": 2.1,
+      "consecutive_fails": 2,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.01507832,
         "top_bid_eth": 0.014,
@@ -263,18 +263,18 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 8,
-      "scans_seen": 2
+      "days_on_list": 15,
+      "scans_seen": 3
     },
     {
       "slug": "veefriends-series-2",
       "name": "VeeFriends Series 2",
       "entered_on": "2026-08-24",
-      "days_on_list": 7,
-      "weeks_on_list": 1.0,
-      "scans_seen": 2,
-      "consecutive_fails": 1,
-      "last_seen": "2026-08-31",
+      "days_on_list": 14,
+      "weeks_on_list": 2.0,
+      "scans_seen": 3,
+      "consecutive_fails": 2,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0893989,
         "top_bid_eth": 0.084,
@@ -289,11 +289,11 @@
       "slug": "cryptoskulls",
       "name": "CryptoSkulls",
       "entered_on": "2026-08-24",
-      "days_on_list": 7,
-      "weeks_on_list": 1.0,
-      "scans_seen": 2,
-      "consecutive_fails": 1,
-      "last_seen": "2026-08-31",
+      "days_on_list": 14,
+      "weeks_on_list": 2.0,
+      "scans_seen": 3,
+      "consecutive_fails": 2,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0525,
         "top_bid_eth": 0.0496,
@@ -308,11 +308,11 @@
       "slug": "r3ordr",
       "name": "R3ORDR",
       "entered_on": "2026-08-24",
-      "days_on_list": 7,
-      "weeks_on_list": 1.0,
-      "scans_seen": 2,
-      "consecutive_fails": 1,
-      "last_seen": "2026-08-31",
+      "days_on_list": 14,
+      "weeks_on_list": 2.0,
+      "scans_seen": 3,
+      "consecutive_fails": 2,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0172939,
         "top_bid_eth": 0.0159,
@@ -327,11 +327,11 @@
       "slug": "moonbirds-mythics",
       "name": "Moonbirds: Mythics",
       "entered_on": "2026-08-24",
-      "days_on_list": 7,
-      "weeks_on_list": 1.0,
-      "scans_seen": 2,
-      "consecutive_fails": 1,
-      "last_seen": "2026-08-31",
+      "days_on_list": 14,
+      "weeks_on_list": 2.0,
+      "scans_seen": 3,
+      "consecutive_fails": 2,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.0649145,
         "top_bid_eth": 0.061,
@@ -346,11 +346,11 @@
       "slug": "memelandcaptainz",
       "name": "Memeland Captainz",
       "entered_on": "2026-08-31",
-      "days_on_list": 0,
-      "weeks_on_list": 0.0,
-      "scans_seen": 1,
-      "consecutive_fails": 0,
-      "last_seen": "2026-08-31",
+      "days_on_list": 7,
+      "weeks_on_list": 1.0,
+      "scans_seen": 2,
+      "consecutive_fails": 1,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.04966858,
         "top_bid_eth": 0.0461,
@@ -365,17 +365,74 @@
       "slug": "akidcalledbeast",
       "name": "a KID called BEAST",
       "entered_on": "2026-08-31",
-      "days_on_list": 0,
-      "weeks_on_list": 0.0,
-      "scans_seen": 1,
-      "consecutive_fails": 0,
-      "last_seen": "2026-08-31",
+      "days_on_list": 7,
+      "weeks_on_list": 1.0,
+      "scans_seen": 2,
+      "consecutive_fails": 1,
+      "last_seen": "2026-09-07",
       "entry_metrics": {
         "floor_eth": 0.059999,
         "top_bid_eth": 0.0579,
         "spread_pct": 3.5,
         "sales_7d": 61,
         "owners": 3037
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "cool-cats-nft",
+      "name": "Cool Cats",
+      "entered_on": "2026-09-07",
+      "days_on_list": 0,
+      "weeks_on_list": 0.0,
+      "scans_seen": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-09-07",
+      "entry_metrics": {
+        "floor_eth": 0.1307338084000002,
+        "top_bid_eth": 0.128,
+        "spread_pct": 2.1,
+        "sales_7d": 98,
+        "owners": 5386
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "0n1-force",
+      "name": "0N1 Force",
+      "entered_on": "2026-09-07",
+      "days_on_list": 0,
+      "weeks_on_list": 0.0,
+      "scans_seen": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-09-07",
+      "entry_metrics": {
+        "floor_eth": 0.045316,
+        "top_bid_eth": 0.0413,
+        "spread_pct": 8.9,
+        "sales_7d": 42,
+        "owners": 3263
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "alienfrensnft",
+      "name": "alien frens",
+      "entered_on": "2026-09-07",
+      "days_on_list": 0,
+      "weeks_on_list": 0.0,
+      "scans_seen": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-09-07",
+      "entry_metrics": {
+        "floor_eth": 0.0144999,
+        "top_bid_eth": 0.0132,
+        "spread_pct": 9.0,
+        "sales_7d": 41,
+        "owners": 5819
       },
       "research": null,
       "missed_scans": 0
