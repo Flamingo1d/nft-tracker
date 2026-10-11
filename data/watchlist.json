@@ -4,9 +4,9 @@
       "slug": "nakamigos",
       "name": "Nakamigos",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 6.7,
+      "weeks_on_list": 7.7,
       "consecutive_fails": 0,
-      "last_seen": "2026-10-04",
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.097082,
         "top_bid_eth": 0.0932,
@@ -16,16 +16,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 47,
-      "scans_seen": 7
+      "days_on_list": 54,
+      "scans_seen": 8
     },
     {
       "slug": "azukielementals",
       "name": "Azuki Elementals",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 6.7,
-      "consecutive_fails": 1,
-      "last_seen": "2026-10-04",
+      "weeks_on_list": 7.7,
+      "consecutive_fails": 0,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.0788,
         "top_bid_eth": 0.076,
@@ -35,16 +35,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 47,
-      "scans_seen": 7
+      "days_on_list": 54,
+      "scans_seen": 8
     },
     {
       "slug": "beanzofficial",
       "name": "BEANZ Official",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 6.7,
+      "weeks_on_list": 7.7,
       "consecutive_fails": 0,
-      "last_seen": "2026-10-04",
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.04793593,
         "top_bid_eth": 0.0445,
@@ -54,16 +54,16 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 47,
-      "scans_seen": 7
+      "days_on_list": 54,
+      "scans_seen": 8
     },
     {
       "slug": "memelandpotatoz",
       "name": "Memeland Potatoz",
       "entered_on": "2026-08-18",
-      "weeks_on_list": 6.7,
-      "consecutive_fails": 0,
-      "last_seen": "2026-10-04",
+      "weeks_on_list": 7.7,
+      "consecutive_fails": 1,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.0478033,
         "top_bid_eth": 0.045,
@@ -73,132 +73,18 @@
       },
       "research": null,
       "missed_scans": 0,
-      "days_on_list": 47,
-      "scans_seen": 7
-    },
-    {
-      "slug": "otherdeed-expanded",
-      "name": "Otherdeed Expanded",
-      "entered_on": "2026-08-23",
-      "weeks_on_list": 6.0,
-      "consecutive_fails": 5,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.07144589,
-        "top_bid_eth": 0.067,
-        "spread_pct": 6.2,
-        "sales_7d": 121,
-        "owners": 12072
-      },
-      "research": null,
-      "missed_scans": 0,
-      "days_on_list": 42,
-      "scans_seen": 7
-    },
-    {
-      "slug": "world-of-women-nft",
-      "name": "World of Women",
-      "entered_on": "2026-08-23",
-      "weeks_on_list": 6.0,
-      "consecutive_fails": 1,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.0958649,
-        "top_bid_eth": 0.09,
-        "spread_pct": 6.1,
-        "sales_7d": 106,
-        "owners": 5281
-      },
-      "research": null,
-      "missed_scans": 0,
-      "days_on_list": 42,
-      "scans_seen": 7
-    },
-    {
-      "slug": "trollsoneth",
-      "name": "TROLLS",
-      "entered_on": "2026-08-23",
-      "weeks_on_list": 6.0,
-      "consecutive_fails": 7,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.05249999,
-        "top_bid_eth": 0.0477,
-        "spread_pct": 9.1,
-        "sales_7d": 156,
-        "owners": 755
-      },
-      "research": null,
-      "missed_scans": 0,
-      "days_on_list": 42,
-      "scans_seen": 7
-    },
-    {
-      "slug": "depunks-club",
-      "name": "DePunks Club",
-      "entered_on": "2026-08-23",
-      "weeks_on_list": 6.0,
-      "consecutive_fails": 7,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.009489,
-        "top_bid_eth": 0.0086,
-        "spread_pct": 9.4,
-        "sales_7d": 479,
-        "owners": 963
-      },
-      "research": null,
-      "missed_scans": 0,
-      "days_on_list": 42,
-      "scans_seen": 7
-    },
-    {
-      "slug": "godhatesnftees",
-      "name": "God Hates NFTees",
-      "entered_on": "2026-08-23",
-      "weeks_on_list": 6.0,
-      "consecutive_fails": 5,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.025,
-        "top_bid_eth": 0.0225,
-        "spread_pct": 10.0,
-        "sales_7d": 40,
-        "owners": 1751
-      },
-      "research": null,
-      "missed_scans": 0,
-      "days_on_list": 42,
-      "scans_seen": 7
-    },
-    {
-      "slug": "jirasan",
-      "name": "Jirasan",
-      "entered_on": "2026-08-23",
-      "weeks_on_list": 6.0,
-      "consecutive_fails": 6,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.01507832,
-        "top_bid_eth": 0.014,
-        "spread_pct": 7.2,
-        "sales_7d": 43,
-        "owners": 2247
-      },
-      "research": null,
-      "missed_scans": 0,
-      "days_on_list": 42,
-      "scans_seen": 7
+      "days_on_list": 54,
+      "scans_seen": 8
     },
     {
       "slug": "veefriends-series-2",
       "name": "VeeFriends Series 2",
       "entered_on": "2026-08-24",
-      "days_on_list": 41,
-      "weeks_on_list": 5.9,
-      "scans_seen": 7,
-      "consecutive_fails": 2,
-      "last_seen": "2026-10-04",
+      "days_on_list": 48,
+      "weeks_on_list": 6.9,
+      "scans_seen": 8,
+      "consecutive_fails": 0,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.0893989,
         "top_bid_eth": 0.084,
@@ -210,71 +96,14 @@
       "missed_scans": 0
     },
     {
-      "slug": "cryptoskulls",
-      "name": "CryptoSkulls",
-      "entered_on": "2026-08-24",
-      "days_on_list": 41,
-      "weeks_on_list": 5.9,
-      "scans_seen": 7,
-      "consecutive_fails": 2,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.0525,
-        "top_bid_eth": 0.0496,
-        "spread_pct": 5.5,
-        "sales_7d": 178,
-        "owners": 3831
-      },
-      "research": null,
-      "missed_scans": 0
-    },
-    {
-      "slug": "r3ordr",
-      "name": "R3ORDR",
-      "entered_on": "2026-08-24",
-      "days_on_list": 41,
-      "weeks_on_list": 5.9,
-      "scans_seen": 7,
-      "consecutive_fails": 6,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.0172939,
-        "top_bid_eth": 0.0159,
-        "spread_pct": 8.1,
-        "sales_7d": 397,
-        "owners": 1430
-      },
-      "research": null,
-      "missed_scans": 0
-    },
-    {
-      "slug": "moonbirds-mythics",
-      "name": "Moonbirds: Mythics",
-      "entered_on": "2026-08-24",
-      "days_on_list": 41,
-      "weeks_on_list": 5.9,
-      "scans_seen": 7,
-      "consecutive_fails": 6,
-      "last_seen": "2026-10-04",
-      "entry_metrics": {
-        "floor_eth": 0.0649145,
-        "top_bid_eth": 0.061,
-        "spread_pct": 6.0,
-        "sales_7d": 59,
-        "owners": 1762
-      },
-      "research": null,
-      "missed_scans": 0
-    },
-    {
       "slug": "memelandcaptainz",
       "name": "Memeland Captainz",
       "entered_on": "2026-08-31",
-      "days_on_list": 34,
-      "weeks_on_list": 4.9,
-      "scans_seen": 6,
-      "consecutive_fails": 5,
-      "last_seen": "2026-10-04",
+      "days_on_list": 41,
+      "weeks_on_list": 5.9,
+      "scans_seen": 7,
+      "consecutive_fails": 0,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.04966858,
         "top_bid_eth": 0.0461,
@@ -289,11 +118,11 @@
       "slug": "akidcalledbeast",
       "name": "a KID called BEAST",
       "entered_on": "2026-08-31",
-      "days_on_list": 34,
-      "weeks_on_list": 4.9,
-      "scans_seen": 6,
-      "consecutive_fails": 5,
-      "last_seen": "2026-10-04",
+      "days_on_list": 41,
+      "weeks_on_list": 5.9,
+      "scans_seen": 7,
+      "consecutive_fails": 6,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.059999,
         "top_bid_eth": 0.0579,
@@ -308,11 +137,11 @@
       "slug": "cool-cats-nft",
       "name": "Cool Cats",
       "entered_on": "2026-09-07",
-      "days_on_list": 27,
-      "weeks_on_list": 3.9,
-      "scans_seen": 5,
-      "consecutive_fails": 1,
-      "last_seen": "2026-10-04",
+      "days_on_list": 34,
+      "weeks_on_list": 4.9,
+      "scans_seen": 6,
+      "consecutive_fails": 2,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.1307338084000002,
         "top_bid_eth": 0.128,
@@ -327,11 +156,11 @@
       "slug": "0n1-force",
       "name": "0N1 Force",
       "entered_on": "2026-09-07",
-      "days_on_list": 27,
-      "weeks_on_list": 3.9,
-      "scans_seen": 5,
-      "consecutive_fails": 4,
-      "last_seen": "2026-10-04",
+      "days_on_list": 34,
+      "weeks_on_list": 4.9,
+      "scans_seen": 6,
+      "consecutive_fails": 5,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.045316,
         "top_bid_eth": 0.0413,
@@ -346,11 +175,11 @@
       "slug": "alienfrensnft",
       "name": "alien frens",
       "entered_on": "2026-09-07",
-      "days_on_list": 27,
-      "weeks_on_list": 3.9,
-      "scans_seen": 5,
-      "consecutive_fails": 4,
-      "last_seen": "2026-10-04",
+      "days_on_list": 34,
+      "weeks_on_list": 4.9,
+      "scans_seen": 6,
+      "consecutive_fails": 5,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.0144999,
         "top_bid_eth": 0.0132,
@@ -365,11 +194,11 @@
       "slug": "ten-thousand-tokens",
       "name": "Ten Thousand Tokens",
       "entered_on": "2026-09-13",
-      "days_on_list": 21,
-      "weeks_on_list": 3.0,
-      "scans_seen": 4,
-      "consecutive_fails": 2,
-      "last_seen": "2026-10-04",
+      "days_on_list": 28,
+      "weeks_on_list": 4.0,
+      "scans_seen": 5,
+      "consecutive_fails": 3,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.00805994,
         "top_bid_eth": 0.0079,
@@ -384,11 +213,11 @@
       "slug": "deadfellaz",
       "name": "Deadfellaz",
       "entered_on": "2026-09-20",
-      "days_on_list": 14,
-      "weeks_on_list": 2.0,
-      "scans_seen": 3,
-      "consecutive_fails": 0,
-      "last_seen": "2026-10-04",
+      "days_on_list": 21,
+      "weeks_on_list": 3.0,
+      "scans_seen": 4,
+      "consecutive_fails": 1,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.08058819230000022,
         "top_bid_eth": 0.0771,
@@ -403,11 +232,11 @@
       "slug": "sappy-seals",
       "name": "Sappy Seals",
       "entered_on": "2026-09-20",
-      "days_on_list": 14,
-      "weeks_on_list": 2.0,
-      "scans_seen": 3,
-      "consecutive_fails": 2,
-      "last_seen": "2026-10-04",
+      "days_on_list": 21,
+      "weeks_on_list": 3.0,
+      "scans_seen": 4,
+      "consecutive_fails": 0,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.0526348956,
         "top_bid_eth": 0.0511,
@@ -422,11 +251,11 @@
       "slug": "adam-bomb-squad",
       "name": "Adam Bomb Squad",
       "entered_on": "2026-09-27",
-      "days_on_list": 7,
-      "weeks_on_list": 1.0,
-      "scans_seen": 2,
-      "consecutive_fails": 1,
-      "last_seen": "2026-10-04",
+      "days_on_list": 14,
+      "weeks_on_list": 2.0,
+      "scans_seen": 3,
+      "consecutive_fails": 2,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.011998,
         "top_bid_eth": 0.0111,
@@ -441,17 +270,55 @@
       "slug": "spaceriders",
       "name": "Space Riders",
       "entered_on": "2026-10-04",
-      "days_on_list": 0,
-      "weeks_on_list": 0.0,
-      "scans_seen": 1,
-      "consecutive_fails": 0,
-      "last_seen": "2026-10-04",
+      "days_on_list": 7,
+      "weeks_on_list": 1.0,
+      "scans_seen": 2,
+      "consecutive_fails": 1,
+      "last_seen": "2026-10-11",
       "entry_metrics": {
         "floor_eth": 0.01,
         "top_bid_eth": 0.0091,
         "spread_pct": 9.0,
         "sales_7d": 59,
         "owners": 3440
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "pudgyrods",
+      "name": "Pudgy Rods",
+      "entered_on": "2026-10-11",
+      "days_on_list": 0,
+      "weeks_on_list": 0.0,
+      "scans_seen": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.0665916,
+        "top_bid_eth": 0.0641,
+        "spread_pct": 3.7,
+        "sales_7d": 146,
+        "owners": 2916
+      },
+      "research": null,
+      "missed_scans": 0
+    },
+    {
+      "slug": "nakamigos-cloaks",
+      "name": "Nakamigos-CLOAKS",
+      "entered_on": "2026-10-11",
+      "days_on_list": 0,
+      "weeks_on_list": 0.0,
+      "scans_seen": 1,
+      "consecutive_fails": 0,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.0080216,
+        "top_bid_eth": 0.0074,
+        "spread_pct": 7.7,
+        "sales_7d": 47,
+        "owners": 3625
       },
       "research": null,
       "missed_scans": 0
@@ -564,6 +431,249 @@
         "top_bid_eth": 0.0076,
         "spread_pct": 21.2,
         "sales_7d": 5
+      }
+    },
+    {
+      "slug": "otherdeed-expanded",
+      "name": "Otherdeed Expanded",
+      "entered_on": "2026-08-23",
+      "weeks_on_list": 7.0,
+      "consecutive_fails": 6,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.07144589,
+        "top_bid_eth": 0.067,
+        "spread_pct": 6.2,
+        "sales_7d": 121,
+        "owners": 12072
+      },
+      "research": null,
+      "missed_scans": 0,
+      "days_on_list": 49,
+      "scans_seen": 8,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 6 scans running after 49 days on the list: spread 12.0% > 8% for medium position",
+      "exit_metrics": {
+        "floor_eth": 0.0749978,
+        "top_bid_eth": 0.066,
+        "spread_pct": 12.0,
+        "sales_7d": 85
+      }
+    },
+    {
+      "slug": "world-of-women-nft",
+      "name": "World of Women",
+      "entered_on": "2026-08-23",
+      "weeks_on_list": 7.0,
+      "consecutive_fails": 2,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.0958649,
+        "top_bid_eth": 0.09,
+        "spread_pct": 6.1,
+        "sales_7d": 106,
+        "owners": 5281
+      },
+      "research": null,
+      "missed_scans": 0,
+      "days_on_list": 49,
+      "scans_seen": 8,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 2 scans running after 49 days on the list: sales_7d 20 < 53.3 needed for medium position",
+      "exit_metrics": {
+        "floor_eth": 0.06129476520000022,
+        "top_bid_eth": 0.0583,
+        "spread_pct": 4.9,
+        "sales_7d": 20
+      }
+    },
+    {
+      "slug": "trollsoneth",
+      "name": "TROLLS",
+      "entered_on": "2026-08-23",
+      "weeks_on_list": 7.0,
+      "consecutive_fails": 8,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.05249999,
+        "top_bid_eth": 0.0477,
+        "spread_pct": 9.1,
+        "sales_7d": 156,
+        "owners": 755
+      },
+      "research": null,
+      "missed_scans": 0,
+      "days_on_list": 49,
+      "scans_seen": 8,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 8 scans running after 49 days on the list: spread 16.3% > 8% for medium position",
+      "exit_metrics": {
+        "floor_eth": 0.0566171,
+        "top_bid_eth": 0.0474,
+        "spread_pct": 16.3,
+        "sales_7d": 77
+      }
+    },
+    {
+      "slug": "depunks-club",
+      "name": "DePunks Club",
+      "entered_on": "2026-08-23",
+      "weeks_on_list": 7.0,
+      "consecutive_fails": 8,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.009489,
+        "top_bid_eth": 0.0086,
+        "spread_pct": 9.4,
+        "sales_7d": 479,
+        "owners": 963
+      },
+      "research": null,
+      "missed_scans": 0,
+      "days_on_list": 49,
+      "scans_seen": 8,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 8 scans running after 49 days on the list: spread 23.3% > 10% for small position; sales_7d 5 < 40.0 needed for small position; only 3 distinct bidders near top (need 5.0 for small)",
+      "exit_metrics": {
+        "floor_eth": 0.003,
+        "top_bid_eth": 0.0023,
+        "spread_pct": 23.3,
+        "sales_7d": 5
+      }
+    },
+    {
+      "slug": "godhatesnftees",
+      "name": "God Hates NFTees",
+      "entered_on": "2026-08-23",
+      "weeks_on_list": 7.0,
+      "consecutive_fails": 6,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.025,
+        "top_bid_eth": 0.0225,
+        "spread_pct": 10.0,
+        "sales_7d": 40,
+        "owners": 1751
+      },
+      "research": null,
+      "missed_scans": 0,
+      "days_on_list": 49,
+      "scans_seen": 8,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 6 scans running after 49 days on the list: spread 18.2% > 10% for small position; sales_7d 26 < 40.0 needed for small position",
+      "exit_metrics": {
+        "floor_eth": 0.0239546,
+        "top_bid_eth": 0.0196,
+        "spread_pct": 18.2,
+        "sales_7d": 26
+      }
+    },
+    {
+      "slug": "jirasan",
+      "name": "Jirasan",
+      "entered_on": "2026-08-23",
+      "weeks_on_list": 7.0,
+      "consecutive_fails": 7,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.01507832,
+        "top_bid_eth": 0.014,
+        "spread_pct": 7.2,
+        "sales_7d": 43,
+        "owners": 2247
+      },
+      "research": null,
+      "missed_scans": 0,
+      "days_on_list": 49,
+      "scans_seen": 8,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 7 scans running after 49 days on the list: spread 17.6% > 10% for small position; only 3 distinct bidders near top (need 5.0 for small)",
+      "exit_metrics": {
+        "floor_eth": 0.00825,
+        "top_bid_eth": 0.0068,
+        "spread_pct": 17.6,
+        "sales_7d": 96
+      }
+    },
+    {
+      "slug": "cryptoskulls",
+      "name": "CryptoSkulls",
+      "entered_on": "2026-08-24",
+      "days_on_list": 48,
+      "weeks_on_list": 6.9,
+      "scans_seen": 8,
+      "consecutive_fails": 3,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.0525,
+        "top_bid_eth": 0.0496,
+        "spread_pct": 5.5,
+        "sales_7d": 178,
+        "owners": 3831
+      },
+      "research": null,
+      "missed_scans": 0,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 3 scans running after 48 days on the list: sales_7d 28 < 40.0 needed for small position",
+      "exit_metrics": {
+        "floor_eth": 0.041636999,
+        "top_bid_eth": 0.0389,
+        "spread_pct": 6.6,
+        "sales_7d": 28
+      }
+    },
+    {
+      "slug": "r3ordr",
+      "name": "R3ORDR",
+      "entered_on": "2026-08-24",
+      "days_on_list": 48,
+      "weeks_on_list": 6.9,
+      "scans_seen": 8,
+      "consecutive_fails": 7,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.0172939,
+        "top_bid_eth": 0.0159,
+        "spread_pct": 8.1,
+        "sales_7d": 397,
+        "owners": 1430
+      },
+      "research": null,
+      "missed_scans": 0,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 7 scans running after 48 days on the list: spread 11.3% > 10% for small position",
+      "exit_metrics": {
+        "floor_eth": 0.00698999,
+        "top_bid_eth": 0.0062,
+        "spread_pct": 11.3,
+        "sales_7d": 60
+      }
+    },
+    {
+      "slug": "moonbirds-mythics",
+      "name": "Moonbirds: Mythics",
+      "entered_on": "2026-08-24",
+      "days_on_list": 48,
+      "weeks_on_list": 6.9,
+      "scans_seen": 8,
+      "consecutive_fails": 7,
+      "last_seen": "2026-10-11",
+      "entry_metrics": {
+        "floor_eth": 0.0649145,
+        "top_bid_eth": 0.061,
+        "spread_pct": 6.0,
+        "sales_7d": 59,
+        "owners": 1762
+      },
+      "research": null,
+      "missed_scans": 0,
+      "exited_on": "2026-10-11",
+      "exit_reason": "failed criteria 7 scans running after 48 days on the list: spread 15.8% > 10% for small position",
+      "exit_metrics": {
+        "floor_eth": 0.052738,
+        "top_bid_eth": 0.0444,
+        "spread_pct": 15.8,
+        "sales_7d": 61
       }
     }
   ]
